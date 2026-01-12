@@ -157,10 +157,10 @@ Erstelle oder erweitere die Datei `templates.yaml` in deinem Home Assistant Konf
           {% set jahr = heute.year %}
 
           {# Tage im aktuellen Monat #}
-          {% set tage_im_monat = (as_datetime(jahr ~ '-' ~ (monat + 1) ~ '-01') 
-                                  - as_datetime(jahr ~ '-' ~ monat ~ '-01')).days 
-                                  if monat < 12 else 
-                                  (as_datetime((jahr+1) ~ '-01-01') 
+          {% set tage_im_monat = (as_datetime(jahr ~ '-' ~ '%02d' | format(monat + 1) ~ '-01')
+                                  - as_datetime(jahr ~ '-' ~ '%02d' | format(monat) ~ '-01')).days
+                                  if monat < 12 else
+                                  (as_datetime((jahr+1) ~ '-01-01')
                                   - as_datetime(jahr ~ '-12-01')).days %}
 
           {# Anteil des Monats, der noch übrig ist (inkl. Heute) #}
