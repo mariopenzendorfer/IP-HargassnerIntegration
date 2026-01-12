@@ -191,7 +191,51 @@ Erstelle oder erweitere die Datei `templates.yaml` in deinem Home Assistant Konf
 template: !include templates.yaml
 ```
 
-### Schritt 2: Utility Meters konfigurieren
+### Schritt 2: Input DateTime Helper erstellen
+
+Der `input_datetime` Helper ist **zwingend erforderlich** für die Berechnung der Verbrauchsprognosen. Er speichert den Startzeitpunkt, ab dem der Pelletverbrauch gemessen wird.
+
+**Option A: Über die UI erstellen (empfohlen)**
+
+1. Gehe zu **Einstellungen** → **Geräte & Dienste** → **Helfer**
+2. Klicke auf **+ Helfer erstellen**
+3. Wähle **Datum und/oder Uhrzeit**
+4. Konfiguriere:
+   - **Name**: `hg_pk32_pelletverbrauch_startzeit`
+   - **Hat ein Datum**: ✓ aktiviert
+   - **Hat eine Zeit**: ✓ aktiviert
+5. Klicke auf **Erstellen**
+6. Nach dem Erstellen: Öffne den Helper und setze das Datum/Uhrzeit auf den Zeitpunkt, ab dem dein Pelletverbrauchszähler zählt (z.B. wann du das letzte Mal die Pellets aufgefüllt hast oder die Heizperiode begonnen hat)
+
+**Option B: Per YAML erstellen**
+
+Erstelle oder erweitere die Datei `input_datetime.yaml`:
+
+```yaml
+#
+# Input DateTime Helpers
+#
+
+# Startzeit für Pelletverbrauch-Berechnung
+# Setze dieses Datum auf den Zeitpunkt, ab dem der Verbrauch gezählt werden soll
+hg_pk32_pelletverbrauch_startzeit:
+  name: "Pelletverbrauch Startzeit"
+  has_date: true
+  has_time: true
+```
+
+Stelle sicher, dass `input_datetime.yaml` in deiner `configuration.yaml` eingebunden ist:
+
+```yaml
+# Input DateTime
+input_datetime: !include input_datetime.yaml
+```
+
+Nach dem Neustart von Home Assistant: Gehe zu **Entwicklerwerkzeuge** → **Zustände** und setze `input_datetime.hg_pk32_pelletverbrauch_startzeit` auf das gewünschte Startdatum.
+
+> **Wichtig**: Ohne diesen Helper zeigen alle Prognose-Sensoren "unknown" oder "0" an! Der Startzeitpunkt bestimmt den Berechnungszeitraum für die Effizienz (kg/HDD), welche die Grundlage für alle Prognosen ist.
+
+### Schritt 3: Utility Meters konfigurieren
 
 Die Utility Meters erfassen den Pelletverbrauch in verschiedenen Zeiträumen (Tag, Woche, Monat, Jahr).
 
@@ -249,7 +293,7 @@ hg_pk32_pelletverbrauch_jahr:
 utility_meter: !include utility_meter.yaml
 ```
 
-### Schritt 3: Dashboard erstellen
+### Schritt 4: Dashboard erstellen
 
 Erstelle ein neues Dashboard in Home Assistant oder füge eine neue Ansicht hinzu:
 
@@ -803,7 +847,7 @@ cards:
         icon: mdi:toggle-switch
 ```
 
-### Schritt 4: ApexCharts Card installieren (optional)
+### Schritt 5: ApexCharts Card installieren (optional)
 
 Für die 30-Tage-Übersicht wird die ApexCharts Card benötigt. Installation via HACS:
 
@@ -859,6 +903,13 @@ Falls deine Hargassner-Installation andere Sensor-Namen verwendet (z.B. `hg_hsk2
 - Stelle sicher, dass die Hargassner Integration korrekt installiert und konfiguriert ist
 - Überprüfe, ob die Utility Meters korrekt in `configuration.yaml` eingebunden sind
 - Starte Home Assistant neu nach Änderungen an den Konfigurationsdateien
+
+### Prognose-Sensoren zeigen "0" oder "unknown"
+
+- **Häufigste Ursache**: Der `input_datetime.hg_pk32_pelletverbrauch_startzeit` Helper wurde nicht erstellt oder nicht konfiguriert
+- Erstelle den Helper wie in **Schritt 2** beschrieben
+- Setze das Datum auf einen sinnvollen Startzeitpunkt (z.B. Beginn der Heizperiode oder letztes Pellet-Auffüllen)
+- Überprüfe in **Entwicklerwerkzeuge** → **Zustände**, ob der Helper existiert und einen gültigen Zeitstempel hat
 
 ### ApexCharts Card wird nicht angezeigt
 
