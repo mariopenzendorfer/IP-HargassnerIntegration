@@ -5,6 +5,31 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
+## [0.2.7] - 2026-01-12
+
+### ✨ Added
+
+- **Firmware-Unterstützung für Classic Lambda 40L-60L (V14_0m5)** ([firmware_templates.py](custom_components/bauergroup_hargassnerintegration/firmware_templates.py))
+  - Community-Beitrag von [@philippe44](https://github.com/philippe44) via [Issue #6](https://github.com/bauer-group/IP-HargassnerIntegration/issues/6)
+  - 146 Analog-Parameter (vs. ~112 beim Nano-PK)
+  - Unterstützung für Heizkreise 3-6
+  - Zusätzliche Warmwasser-Sensoren (TB2, TB3)
+  - Firmware-Version in [const.py](custom_components/bauergroup_hargassnerintegration/const.py) registriert
+
+- **Classic-spezifische Parameter-Beschreibungen (DE/EN)** ([firmware_templates.py](custom_components/bauergroup_hargassnerintegration/firmware_templates.py))
+  - 60+ neue Parameter-Übersetzungen für Classic Lambda
+  - Puffer Mitte-Oben/Unten (TPmo, TPmu)
+  - Heizkreise 3-6 vollständig (TVL, TVLs, TRA, TRs, HKZustand, FR Zustand)
+  - Externe Heizkreis-Pumpen (EHKP, EHKP2, EHKP3)
+
+### 🐛 Fixed
+
+- **Sprachunterstützung für STANDARD_SENSORS** ([sensor.py](custom_components/bauergroup_hargassnerintegration/sensor.py))
+  - Community-Beitrag von [@philippe44](https://github.com/philippe44) via [PR #7](https://github.com/bauer-group/IP-HargassnerIntegration/pull/7)
+  - STANDARD_SENSORS verwenden jetzt sprachabhängige Namen aus `PARAMETER_DESCRIPTIONS`
+  - Englischsprachige Benutzer sehen nun korrekt übersetzte Sensornamen
+  - Entity-IDs bleiben stabil (kein Breaking Change)
+
 ## [0.2.6] - 2025-12-01
 
 ### 🐛 Fixed
