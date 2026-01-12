@@ -95,6 +95,7 @@ ERROR_CODES: Final = {
 FIRMWARE_VERSIONS: Final = [
     "V14_1HAR_q1",
     "V14_0HAR_q",
+    "V14_0m5",  # Classic Lambda 40L-60L
 ]
 
 # Energy calculation defaults
