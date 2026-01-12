@@ -62,6 +62,7 @@
 |-------|----------|--------|
 | Nano-PK | V14_1HAR_q1 | ✅ Fully tested |
 | Nano-PK | V14_0HAR_q | 🧪 Community tested (contributed by [@notecp](https://github.com/notecp)) |
+| Classic Lambda 40L-60L | V14_0m5 | 🧪 Community tested (contributed by [@philippe44](https://github.com/philippe44)) |
 | Other Hargassner models | Custom | ⚠️ Requires firmware template |
 
 > **Note:** Additional firmware versions can be easily added via XML templates. See [Adding Firmware Support](docs/ADDING_FIRMWARE.md) (EN) or [Neue Firmware hinzufügen](docs/ADDING_FIRMWARE_DE.md) (DE) for details.
