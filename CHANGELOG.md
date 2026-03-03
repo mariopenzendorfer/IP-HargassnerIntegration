@@ -24,10 +24,8 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 - **Cross-Template Parameter-Kompatibilität** ([Issue #12](https://github.com/bauer-group/IP-HargassnerIntegration/issues/12))
   - Neues `_PARAM_NAME_ALIASES`-System in [sensor.py](custom_components/bauergroup_hargassnerintegration/sensor.py) für bidirektionale Umlaut↔ASCII Zuordnung
   - Wärmemenge-Sensor funktioniert jetzt korrekt mit V14_0HAR_q Template (`Verbrauchszaehler` ↔ `Verbrauchszähler`)
-  - Störungs-Sensor Lookup korrigiert (`Stoerungs Nr` ↔ `Störungs Nr`)
-
-- **V14_0HAR_q Template: Tippfehler korrigiert** ([Issue #12](https://github.com/bauer-group/IP-HargassnerIntegration/issues/12))
-  - `Storungs Nr` → `Stoerungs Nr` (fehlender Buchstabe)
+  - Störungs-Sensor Lookup korrigiert (`Storungs Nr` ↔ `Störungs Nr`)
+  - V14_0HAR_q Tippfehler `Storungs Nr` bewusst beibehalten für Entity-ID-Stabilität
 
 - **DAQ-Parser Encoding verbessert** ([tools/daq_parser.py](tools/daq_parser.py))
   - CP1252 als primäres Encoding priorisiert (Windows-Standard für DAQ-Dateien)

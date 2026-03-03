@@ -48,7 +48,8 @@ _LOGGER = logging.getLogger(__name__)
 _PARAM_NAME_ALIASES: dict[str, str] = {
     "Verbrauchszähler": "Verbrauchszaehler",
     "Verbrauchszaehler": "Verbrauchszähler",
-    "Störungs Nr": "Stoerungs Nr",
+    "Störungs Nr": "Storungs Nr",
+    "Storungs Nr": "Störungs Nr",
     "Stoerungs Nr": "Störungs Nr",
     "Puff Füllgrad": "Puff Fuellgrad",
     "Puff Fuellgrad": "Puff Füllgrad",
