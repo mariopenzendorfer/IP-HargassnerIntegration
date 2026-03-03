@@ -64,6 +64,7 @@
 | Nano-PK 20 + Solar/3HK | V14_1HAR_q1_solar | 🧪 Community tested (contributed by [@tvieider](https://github.com/tvieider)) |
 | Nano-PK | V14_0HAR_q | 🧪 Community tested (contributed by [@notecp](https://github.com/notecp)) |
 | Nano 65 | V40_0HAR_az15 | 🧪 Community tested (contributed by [@marianhoenscheid](https://github.com/marianhoenscheid)) |
+| HSV/CL 9-60KW | V14_0d | 🧪 Community tested (contributed by [@tk79](https://github.com/tk79)) |
 | Classic Lambda 40L-60L | V14_0m5 | 🧪 Community tested (contributed by [@philippe44](https://github.com/philippe44)) |
 | Other Hargassner models | Custom | ⚠️ Requires firmware template |
 

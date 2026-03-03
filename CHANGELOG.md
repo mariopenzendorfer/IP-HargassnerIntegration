@@ -5,9 +5,17 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
-## [0.2.9] - 2026-03-03
+## [0.3.0] - 2026-03-03
 
 ### ✨ Added
+
+- **Firmware-Unterstützung für HSV/CL 9-60KW (V14_0d)** ([Issue #14](https://github.com/bauer-group/IP-HargassnerIntegration/issues/14))
+  - Community-Beitrag von [@tk79](https://github.com/tk79)
+  - 165 Analog-Parameter, 84 Digital-Parameter
+  - Ältestes unterstütztes Modell (HSV 15.2, ~10 Jahre alt)
+  - Kaskaden-Parameter, Betriebsstundenzähler (BSZ), Mengenwärmezähler (MWZ)
+  - Encoding-Artefakt `H°Chste Anf` → `Höchste Anf` korrigiert
+  - ⚠️ **Hinweis**: V14_0d hat keinen `Störungs Nr` Analog-Parameter — der Betriebsstatus-Sensor zeigt immer "OK". Störungen werden nur als digitaler Bit-Wert übertragen.
 
 - **Firmware-Unterstützung für Nano.2 20 + Solar/3HK (V14_1HAR_q1_solar)** ([Issue #11](https://github.com/bauer-group/IP-HargassnerIntegration/issues/11))
   - Community-Beitrag von [@tvieider](https://github.com/tvieider) via DAQ-Template
@@ -36,6 +44,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 - **FULL-Modus Anzeigenamen für V14_0HAR_q** ([firmware_templates.py](custom_components/bauergroup_hargassnerintegration/firmware_templates.py))
   - ASCII-Varianten in `PARAMETER_DESCRIPTIONS` ergänzt (Verbrauchszaehler, Stoerungs Nr, Puff Fuellgrad, etc.)
   - FULL-Modus zeigt jetzt korrekte zweisprachige Beschreibungen statt Roh-Parameternamen
+
+- **30+ neue Parameter-Beschreibungen (DE/EN)** für V14_0d
+  - Mengenwärmezähler (MWZ), Betriebsstundenzähler (BSZ), Schieberost, VFS, Kaskade
 
 ## [0.2.8] - 2026-01-19
 
