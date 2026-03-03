@@ -122,19 +122,18 @@ class DAQParser:
         Returns:
             File content as string
         """
-        for encoding in ["utf-8", "latin-1", "cp1252", "iso-8859-1"]:
+        # Try encodings that properly handle German umlauts (ä, ö, ü)
+        # cp1252/latin-1 first since Hargassner DAQ files typically use Windows encoding
+        for encoding in ["cp1252", "latin-1", "iso-8859-1", "utf-8"]:
             try:
-                with open(self.file_path, "r", encoding=encoding, errors="replace") as f:
-                    content = f.read()
-                    # Replace common problematic characters
-                    content = content.replace("�", "°")
-                    return content
-            except Exception:
+                with open(self.file_path, "r", encoding=encoding, errors="strict") as f:
+                    return f.read()
+            except (UnicodeDecodeError, Exception):
                 continue
 
-        # Fallback: binary read with replace
-        with open(self.file_path, "rb") as f:
-            return f.read().decode("utf-8", errors="replace")
+        # Fallback: utf-8 with replacement for truly undecodable files
+        with open(self.file_path, "r", encoding="utf-8", errors="replace") as f:
+            return f.read()
 
     def _extract_header(self) -> str:
         """Extract DAQ header line.
