@@ -17,6 +17,15 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
   - Encoding-Artefakt `H°Chste Anf` → `Höchste Anf` korrigiert
   - ⚠️ **Hinweis**: V14_0d hat keinen `Störungs Nr` Analog-Parameter — der Betriebsstatus-Sensor zeigt immer "OK". Störungen werden nur als digitaler Bit-Wert übertragen.
 
+### ✨ Improved
+
+- **30+ neue Parameter-Beschreibungen (DE/EN)** für V14_0d
+  - Mengenwärmezähler (MWZ), Betriebsstundenzähler (BSZ), Schieberost, VFS, Kaskade
+
+## [0.2.9] - 2026-03-03
+
+### ✨ Added
+
 - **Firmware-Unterstützung für Nano.2 20 + Solar/3HK (V14_1HAR_q1_solar)** ([Issue #11](https://github.com/bauer-group/IP-HargassnerIntegration/issues/11))
   - Community-Beitrag von [@tvieider](https://github.com/tvieider) via DAQ-Template
   - 132 Analog-Parameter (inkl. 3 Dummy-Kanäle für Board-Alignment)
@@ -44,9 +53,6 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 - **FULL-Modus Anzeigenamen für V14_0HAR_q** ([firmware_templates.py](custom_components/bauergroup_hargassnerintegration/firmware_templates.py))
   - ASCII-Varianten in `PARAMETER_DESCRIPTIONS` ergänzt (Verbrauchszaehler, Stoerungs Nr, Puff Fuellgrad, etc.)
   - FULL-Modus zeigt jetzt korrekte zweisprachige Beschreibungen statt Roh-Parameternamen
-
-- **30+ neue Parameter-Beschreibungen (DE/EN)** für V14_0d
-  - Mengenwärmezähler (MWZ), Betriebsstundenzähler (BSZ), Schieberost, VFS, Kaskade
 
 ## [0.2.8] - 2026-01-19
 
