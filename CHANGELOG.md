@@ -29,6 +29,14 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
   - "Outside & Pellets": 4 → 3 Einträge
   - FULL Set: "plus 211" → "plus 202 zusätzliche Parameter"
 
+### 📄 Docs
+
+- **Architektur-Konzept: Cloud Control & ClimateEntity** (`docs/CLOUD_CLIMATE_ARCHITECTURE.md`)
+  - Dokumentiert die reverse-engineered Hargassner Connect Cloud REST API (OAuth, Endpunkte, Widget-Struktur)
+  - ClimateEntity-Mapping (HVAC-Modi, Temperatursteuerung, Heizkurve)
+  - Companion-Architektur: Separate Cloud-Integration neben bestehender lokaler Telnet-Integration
+  - Roadmap für zukünftige Zusammenarbeit mit [@knirzinger](https://github.com/knirzinger)
+
 ### ✨ Improved
 
 - **Dashboard YAML aktualisiert** auf den aktuellen Produktiv-Stand
