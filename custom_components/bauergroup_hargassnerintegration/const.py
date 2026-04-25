@@ -277,6 +277,8 @@ ERROR_CODES: Final = {
     "297": {"en": "Return temp external boiler 2 not reached", "de": "Rücklauftemperatur Fremdwärmekessel 2 nicht erreicht"},
     # Kessel ID & Lagerraum (305-332)
     "305": {"en": "Wrong boiler ID card", "de": "Falsche Kessel ID-Card"},
+    "309": {"en": "Reload Wood", "de": "Nachlegen"},
+    "310": {"en": "ATTENTION! Combustor temperature exceeded 92°C", "de": "ACHTUNG! Kesseltemperatur bei letztem Abbrand erreichte über 92°C"},
     "314": {"en": "Ash screw blocked", "de": "Ascheschnecke blockiert"},
     "322": {"en": "Boiler ID card not connected", "de": "Kessel ID-Card nicht angeschlossen"},
     "332": {"en": "Storage room switch activated", "de": "Lagerraumschalter betätigt"},
@@ -398,6 +400,7 @@ FIRMWARE_VERSIONS: Final = [
     "V14_0m5",  # Classic Lambda 40L-60L
     "V14_0d",  # HSV/CL 9-60KW (Issue #14)
     "V40_0HAR_az15",  # Nano 65
+    "V10_2HAR_n2", # Neo-HV
 ]
 
 # Energy calculation defaults
